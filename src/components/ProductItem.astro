@@ -1,0 +1,53 @@
+---
+const { product } = Astro.props;
+import CartButton from "./AddToCart.jsx";
+import FormatingPrice from "./FormatingPrice";
+---
+
+<article class="product-item" data-id={product.id}>
+    <picture class="w-8">
+        <source srcset={product.image.desktop} media="(width >= 1080px)" />
+        <source srcset={product.image.tablet} media="(width >= 768px)" />
+        <img
+            src={product.image.mobile}
+            alt={product.name + " alter"}
+            class="product-item__image rounded-lg"
+        />
+    </picture>
+    <div class="flex justify-center items-center">
+        <CartButton product={product} client:load />
+    </div>
+    <div class="product-item__info">
+        <p class="product-item__category">{product.category}</p>
+        <h3 class="product-item__name">{product.name}</h3>
+        <p class="product-item__price">
+            <FormatingPrice amount={product.price} char="$" />
+        </p>
+    </div>
+</article>
+
+<style>
+    .product-item__info {
+        .product-item__category {
+            color: var(--rose-500);
+            font-size: 14px;
+        }
+        .product-item__name {
+            color: var(--rose-900);
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        .product-item__price {
+            color: var(--red);
+            font-weight: 600;
+        }
+    }
+
+    article :global(.product-item__cart-button) {
+        transform: translateY(-20px);
+    }
+
+    article :global(.product-item__image--active) {
+        outline: 3px solid var(--red);
+    }
+</style>

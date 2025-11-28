@@ -1,0 +1,27 @@
+---
+import Layout from "../layout/Layout.astro";
+import Cart from "../components/Cart.astro";
+import ProductList from "../components/ProductList.astro";
+---
+
+<Layout>
+    <section class="product-list mx-auto">
+        <ProductList slot="product-list" />
+    </section>
+    <div class="cart bg-white h-full rounded-xl p-6 mb-10 mx-auto">
+        <Cart slot="cart" />
+    </div>
+</Layout>
+
+<style>
+    .product-list {
+        max-width: 900px;
+        gap: 2rem;
+        @media (min-width: 1200px) {
+            flex-grow: 2;
+        }
+    }
+    .cart {
+        flex-grow: 1;
+    }
+</style>

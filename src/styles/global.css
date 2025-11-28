@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+    --red: hsl(14, 86%, 42%);
+    --green: hsl(159, 69%, 38%);
+    --rose-50: hsl(20, 50%, 98%);
+    --rose-100: hsl(13, 31%, 94%);
+    --rose-300: hsl(14, 25%, 72%);
+    --rose-400: hsl(7, 20%, 60%);
+    --rose-500: hsl(12, 20%, 44%);
+    --rose-900: hsl(14, 65%, 9%);
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/red-hat-text-v19-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/fonts/red-hat-text-v19-latin-500.woff2') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 600;
+    src: url('/fonts/red-hat-text-v19-latin-600.woff2') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/fonts/red-hat-text-v19-latin-700.woff2') format('woff2');
+}
+
+@theme {
+    --font-sans: 'Red Hat Text', sans-serif;
+}

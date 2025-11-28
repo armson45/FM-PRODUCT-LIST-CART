@@ -1,0 +1,34 @@
+---
+import { getCollection } from "astro:content";
+const allProducts = await getCollection("productsCollection");
+import ProductItem from "./ProductItem.astro";
+---
+
+<h2 class="text-4xl font-bold mb-8">Desserts</h2>
+<div class="product-items__list mx-auto">
+    {allProducts.map((product) => <ProductItem product={product.data} />)}
+</div>
+
+<style>
+    .product-items__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        justify-content: center;
+        gap: 2rem;
+    }
+    @media (min-width: 768px) {
+        .product-items__list {
+            grid-template-columns: repeat(3, minmax(200px, 1fr));
+        }
+    }
+    @media (min-width: 1000px) {
+        .product-items__list {
+            grid-template-columns: repeat(3, minmax(175px, 200px));
+        }
+    }
+    @media (min-width: 1200px) {
+        .product-items__list {
+            grid-template-columns: repeat(3, minmax(270px, 380px));
+        }
+    }
+</style>
