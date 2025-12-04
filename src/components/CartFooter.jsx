@@ -5,14 +5,18 @@ export default function CartFooter() {
     const cartLength = useCartStore((state) => state.cart.length);
 
     return (
-        <section>
+        <section className="cart-footer">
             {cartLength > 0 && (
                 <>
                     <CarbonNeutral />
-                    <br></br>
                     <button
+                        onClick={(e) => {
+                            const alertDialog = document.querySelector("#confirm-modal");
+                            alertDialog.showModal();
+                        }}
+                        id="confirm-order"
                         type="button"
-                        className="w-full text-sm text-white font-semibold rounded-full bg-(--red) py-4">
+                        className="w-full text-sm text-white font-semibold rounded-full bg-(--red) py-4 mt-6">
                         Confirm Order
                     </button>
                 </>

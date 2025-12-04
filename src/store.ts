@@ -22,6 +22,7 @@ interface CartState {
   removeItem: (id: number) => void;
   total: () => number;
   cartLength: () => number;
+  clear: () => void;
 }
 
 export const useCartStore = create<CartState>()(
@@ -88,6 +89,9 @@ export const useCartStore = create<CartState>()(
       },
       cartLength: () => {
         return get().cart.length;
+      },
+      clear: () => {
+        return set({ cart: [] });
       },
     }),
     {

@@ -1,0 +1,96 @@
+---
+import { OrderConfirmedIcon } from "../assets/icons/CartButtonIcon";
+import CartContent from "./CartContent";
+---
+
+<dialog id="confirm-modal" class="confirm-modal h-full p-4 rounded-2xl lg:p-6">
+    <div class="header">
+        <OrderConfirmedIcon className="w-[42px]" />
+        <h2 class="text-5xl font-bold">Order Confirmed</h2>
+        <p class="text-(--rose-500) pl-2 my-3">We hope you enjoy your food!</p>
+    </div>
+
+    <div class="bg-(--rose-50) px-5 py-0 rounded-lg">
+        <CartContent client:only="react" inModal={true} />
+    </div>
+
+    <button
+        id="start-order"
+        class="new-order-btn w-full text-sm text-white font-semibold rounded-full bg-(--red) py-4"
+    >
+        Start New Order
+    </button>
+</dialog>
+
+<script>
+    import { useCartStore } from "../store";
+    const $newOrderBtn = document.getElementById(
+        "start-order",
+    ) as HTMLButtonElement;
+    const $confirmModal = document.getElementById(
+        "confirm-modal",
+    ) as HTMLDialogElement;
+
+    $newOrderBtn?.addEventListener("click", (e) => {
+        $confirmModal?.close();
+        useCartStore.getState().clear();
+    });
+</script>
+
+<style>
+    #confirm-modal {
+        max-width: 600px;
+        top: 5%;
+        max-height: 95dvh;
+        opacity: 0;
+        flex-direction: column;
+        transition:
+            display 1s allow-discrete,
+            overlay 1s allow-discrete,
+            translate 1s,
+            opacity 1s;
+        translate: 0 50%;
+        will-change: translate, opacity;
+        margin: 0 auto;
+
+        @media (width >= 48rem) {
+            width: 100%;
+            max-height: min-content;
+        }
+    }
+
+    #confirm-modal[open] {
+        display: flex;
+        gap: 32px;
+
+        position: fixed;
+
+        /* animation */
+        opacity: 1;
+        translate: 0;
+        @starting-style {
+            opacity: 0;
+            translate: 0 50%;
+        }
+    }
+
+    .new-order-btn {
+        margin-top: auto;
+    }
+
+    #confirm-modal::backdrop {
+        background: linear-gradient(rgba(0, 0, 0, 0.582), #000a);
+        opacity: 1;
+        transition:
+            display 500ms allow-discrete,
+            opacity 500ms;
+
+        @starting-style {
+            opacity: 0;
+        }
+    }
+
+    #confirm-modal:not([open])::backdrop {
+        opacity: 0;
+    }
+</style>

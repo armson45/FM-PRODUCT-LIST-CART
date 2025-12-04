@@ -2,16 +2,22 @@
 import Layout from "../layout/Layout.astro";
 import Cart from "../components/Cart.astro";
 import ProductList from "../components/ProductList.astro";
+import OrderConfirmed from "../components/OrderConfirmed.astro";
 ---
 
 <Layout>
     <section class="product-list mx-auto">
         <ProductList slot="product-list" />
     </section>
-    <div class="cart bg-white h-full rounded-xl p-6 mb-10 mx-auto">
+    <div class="cart bg-white h-full rounded-xl p-6 flex flex-col">
         <Cart slot="cart" />
     </div>
+    <OrderConfirmed/>
 </Layout>
+
+<script>
+
+</script>
 
 <style>
     .product-list {
@@ -23,5 +29,7 @@ import ProductList from "../components/ProductList.astro";
     }
     .cart {
         flex-grow: 1;
+        max-width: 600px;
+        margin: 0 auto;
     }
 </style>
