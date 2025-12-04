@@ -1,5 +1,5 @@
 import { CartIcon } from "../assets/icons/CartButtonIcon.tsx";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useCartStore } from "../store.ts";
 import CounterButton from "./CounterButton.jsx";
 

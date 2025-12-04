@@ -7,7 +7,7 @@ function EmptyCart() {
 	return (
 		<section className="text-center mt-6">
 			<div>
-				<img className="mx-auto w-32" src="../src/assets/images/illustration-empty-cart.svg" alt="" />
+				<img className="mx-auto w-32" src="/images/illustration-empty-cart.svg" alt="" />
 			</div>
 			<p className="text-(--rose-500) font-semibold text-sm md:text-[16px]">Your added items will appear here!</p>
 		</section>

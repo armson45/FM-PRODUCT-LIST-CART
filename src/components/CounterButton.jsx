@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useCartStore } from "../store.ts";
 import { DecrementIcon, IncrementIcon } from "../assets/icons/CartButtonIcon.tsx";
 
