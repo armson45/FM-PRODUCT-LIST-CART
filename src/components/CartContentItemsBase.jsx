@@ -15,7 +15,7 @@ function CartContentItemBase({ id, name, quantity, price }) {
                 <FormatingPrice amount={price * quantity} className="text-(--rose-500) font-semibold" />
             </p>
             <button onClick={() => removeItem(id)}
-                className="col-start-2 row-span-full text-(--red) font-bold justify-self-end">
+                className="col-start-2 row-span-full text-(--red) font-bold justify-self-end hover:cursor-pointer">
                 <DeleteItemIcon />
             </button>
         </article>

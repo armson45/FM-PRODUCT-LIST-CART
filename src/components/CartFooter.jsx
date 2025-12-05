@@ -16,7 +16,7 @@ export default function CartFooter() {
                         }}
                         id="confirm-order"
                         type="button"
-                        className="w-full text-sm text-white font-semibold rounded-full bg-(--red) py-4 mt-6">
+                        className="w-full text-sm text-white font-semibold rounded-full bg-(--red) py-4 mt-6 hover:bg-(--red)/90 hover:cursor-pointer">
                         Confirm Order
                     </button>
                 </>

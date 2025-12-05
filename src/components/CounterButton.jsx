@@ -12,11 +12,11 @@ export default function CounterButton({ productId }) {
     
     return (
         <div className="product-item__cart-button flex align-center justify-around gap-2 w-[160px] rounded-full bg-(--red) py-3 text-(--rose-900) font-semibold text-sm">
-            <button onClick={() => decreaseQuantity(productId)}>
+            <button onClick={() => decreaseQuantity(productId)} className="hover:cursor-pointer">
                 <DecrementIcon />
             </button>
             <span className="font-bold text-white">{item.quantity}</span>
-            <button onClick={() => increaseQuantity(productId)} >
+            <button onClick={() => increaseQuantity(productId)} className="hover:cursor-pointer">
                 <IncrementIcon />
             </button>
         </div>

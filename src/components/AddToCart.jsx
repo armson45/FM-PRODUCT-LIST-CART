@@ -22,7 +22,7 @@ export default function CartButton({ product }) {
 
     function AddButton() {
         return (
-            <button onClick={handleSaveButton} className="product-item__cart-button flex align-center justify-center gap-2 w-[160px] rounded-full bg-white outline outline-(--rose-400) py-3 text-(--rose-900) font-semibold text-sm">
+            <button onClick={handleSaveButton} className="product-item__cart-button flex align-center justify-center gap-2 w-[160px] rounded-full bg-white outline outline-(--rose-400) py-3 text-(--rose-900) font-semibold text-sm hover:text-(--red) hover:outline-(--red) hover:cursor-pointer">
                 <CartIcon /> Add to Cart
             </button>
         );
